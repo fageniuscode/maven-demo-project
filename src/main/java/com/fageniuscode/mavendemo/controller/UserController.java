@@ -14,7 +14,7 @@ import java.util.List;
  *
  */
 @RestController
-@RequestMapping("/users")
+@RequestMapping("api//users")
 @ComponentScan
 public class UserController {
 
@@ -25,26 +25,26 @@ public class UserController {
     }
 
     @GetMapping
-    public List<UserDTO> getAppUsers() {
+    public List<UserDTO> getUsers() {
         return userService.getUsers();
     }
 
     @GetMapping("/{id}")
-    public UserDTO getAppUser(@PathVariable("id") int id) {
+    public UserDTO getUser(@PathVariable("id") int id) {
         return userService.getUser(id);
     }
 
     @PostMapping
     @ResponseStatus(code = HttpStatus.CREATED)
     //@IsAdmin
-    public UserDTO createAppUser(@Valid @RequestBody UserDTO appUser) {
-        return userService.createUser(appUser);
+    public UserDTO createUser(@Valid @RequestBody UserDTO userDTO) {
+        return userService.createUser(userDTO);
     }
 
     @PutMapping("/{id}")
     //@IsAdmin
-    public UserDTO updateAppUser(@PathVariable("id") int id, @Valid @RequestBody UserDTO appUser) {
-        return userService.updateUser(id, appUser);
+    public UserDTO updateUser(@PathVariable("id") int id, @Valid @RequestBody UserDTO userDTO) {
+        return userService.updateUser(id, userDTO);
     }
 
     @DeleteMapping("/{id}")
