@@ -3,7 +3,11 @@ call mvn install
 call mvn test
 call mvn package
 cd target
-copy *.war C:\m2gl\archives
+del /Q C:\m2gl\archives\*.war
+copy maven-demo-project-0.0.1-SNAPSHOT-*.war C:\m2gl\archives
 cd C:\Users\ibrah\OneDrive\Bureau\@Ibrahima-private\maven-demo\target
-ren *.war ROOT.war
+if exist ROOT.war (
+    del ROOT.war
+)
+ren maven-demo-project-0.0.1-SNAPSHOT-*.war ROOT.war
 
