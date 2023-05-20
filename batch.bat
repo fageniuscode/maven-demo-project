@@ -1,6 +1,7 @@
 call mvn clean
 call mvn install
 call mvn test
+call mvn javadoc:javadoc
 call mvn package
 cd target
 del /Q C:\m2gl\archives\*.war
